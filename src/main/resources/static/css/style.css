@@ -14,14 +14,23 @@ body {
    2. NAVBAR (Kính mờ & Logo)
    ========================================= */
 .navbar {
-    background-color: rgba(0, 0, 0, 0.85) !important; /* Đen mờ 85% */
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: rgba(0, 0, 0, 0.2) !important; /* Đen mờ 85% */
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
     padding: 15px 0;
-    position: sticky;
+    transition: all 0.3s ease;
+
+    position: fixed;
     top: 0;
+    left: 0;
+    width: 100%;
     z-index: 1000;
+}
+
+.navbar:hover {
+    background-color: rgba(0, 0, 0, 0.6) !important;
 }
 
 /* Hiệu ứng chữ THE XUONG */
