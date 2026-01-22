@@ -24,6 +24,8 @@ public class Product {
 
     private String category;
     private BigDecimal price;
+    private String sport;
+    private String brand;
     private String imageUrl;
 
     @Column(columnDefinition = "NVARCHAR(MAX)")
