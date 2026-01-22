@@ -55,7 +55,7 @@ public class OAuth2SuccessHandler extends SimpleUrlAuthenticationSuccessHandler 
         cookie.setMaxAge(60 * 60); //1giờ
         //gắn cookie vào response
         response.addCookie(cookie);
-        // Redrect về home kèm token
+        // Redirect về home kèm token
         getRedirectStrategy().sendRedirect(request, response, "/index.html");
     }
 }

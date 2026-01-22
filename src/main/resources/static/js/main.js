@@ -113,3 +113,64 @@ document.addEventListener("DOMContentLoaded", () => {
         loadProducts();
     }
 });
+
+// 5. Hàm Đăng ký (Dành cho register.html)
+async function handleRegister() {
+    const email = document.getElementById('reg-email').value;
+    const password = document.getElementById('reg-password').value;
+    const rePassword = document.getElementById('reg-repassword').value;
+    const alertMsg = document.getElementById('alertMsg');
+
+    // Reset thông báo
+    alertMsg.style.display = 'none';
+    alertMsg.className = 'error-msg'; // Mặc định là style lỗi
+
+    // 1. Validate cơ bản
+    if (!email || !password || !rePassword) {
+        showError(alertMsg, 'Vui lòng điền đầy đủ thông tin!');
+        return;
+    }
+    if (password !== rePassword) {
+        showError(alertMsg, 'Mật khẩu nhập lại không khớp!');
+        return;
+    }
+
+    // 2. Gọi API đăng ký
+    try {
+        const response = await fetch(`${API_URL}/auth/register`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email, password })
+        });
+
+        const message = await response.text();
+
+        if (response.ok) {
+            // Thành công: Đổi màu thông báo sang xanh (tùy chỉnh inline cho nhanh)
+            alertMsg.style.background = '#d4edda';
+            alertMsg.style.color = '#155724';
+            alertMsg.style.borderColor = '#c3e6cb';
+            alertMsg.innerText = 'Đăng ký thành công! Đang chuyển hướng...';
+            alertMsg.style.display = 'block';
+
+            // Chuyển về trang login sau 1.5 giây
+            setTimeout(() => {
+                window.location.href = 'login.html';
+            }, 1500);
+        } else {
+            // Lỗi từ server (VD: Email đã tồn tại)
+            showError(alertMsg, message || 'Đăng ký thất bại.');
+        }
+    } catch (e) {
+        console.error(e);
+        showError(alertMsg, 'Lỗi kết nối server!');
+    }
+}
+
+// Hàm phụ hiển thị lỗi
+function showError(element, msg) {
+    element.innerText = msg;
+    element.style.background = '#ffe6e6'; // Màu nền đỏ nhạt
+    element.style.color = '#d63031';      // Chữ đỏ đậm
+    element.style.display = 'block';
+}

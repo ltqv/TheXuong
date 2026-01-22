@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Đăng nhập - TheXuong Sport</title>
+    <title>Đăng ký - TheXuong Sport</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="/css/style.css">
 </head>
@@ -14,43 +14,36 @@
         <div class="login-header">
             <img src="/img/logo.png" alt="Logo" width="40" height="40" class="me-2">
             <h2 class="brand-title">THE XUONG</h2>
-            <p class="subtitle">Welcome Back!</p>
+            <p class="subtitle">Tạo tài khoản thành viên mới</p>
         </div>
 
-        <div id="errorMsg" class="error-msg"></div>
+        <div id="alertMsg" class="error-msg" style="display:none; text-align: left;"></div>
 
         <div class="input-group-custom">
             <i class="fa-solid fa-envelope input-icon"></i>
-            <input type="text" id="email" placeholder="Email của bạn">
+            <input type="email" id="reg-email" placeholder="Email của bạn">
         </div>
 
         <div class="input-group-custom">
             <i class="fa-solid fa-lock input-icon"></i>
-            <input type="password" id="password" placeholder="Mật khẩu">
+            <input type="password" id="reg-password" placeholder="Mật khẩu">
         </div>
 
-        <div class="actions">
-            <a href="#" class="forgot-pass">Quên mật khẩu?</a>
+        <div class="input-group-custom">
+            <i class="fa-solid fa-shield-halved input-icon"></i>
+            <input type="password" id="reg-repassword" placeholder="Nhập lại mật khẩu">
         </div>
 
-        <button class="btn-login" onclick="handleLogin()">
-            ĐĂNG NHẬP <i class="fa-solid fa-arrow-right"></i>
+        <button class="btn-login" onclick="handleRegister()">
+            ĐĂNG KÝ NGAY <i class="fa-solid fa-user-plus"></i>
         </button>
 
         <div class="divider">
             <span>HOẶC</span>
         </div>
 
-        <a href="/oauth2/authorization/google" class="btn-google">
-            <i class="fa-brands fa-google" alt="G" width="20"></i>
-            Đăng nhập bằng Google
-        </a>
-
         <p class="register-link">
-        <p style="margin-top:20px; font-size: 0.9rem;" class="text-center text-muted">
-            Chưa có tài khoản?
-            <a href="register.html" class="text-dark fw-bold text-decoration-none">Đăng ký ngay</a>
-        </p>
+            Đã có tài khoản? <a href="login.html">Đăng nhập ngay</a>
         </p>
     </div>
 </div>
